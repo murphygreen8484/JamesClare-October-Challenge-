@@ -1,0 +1,19 @@
+from collections import Counter
+from typing import List
+
+"""
+October 2024 Coding Question.
+Auhor: Dan Murphy
+Created: 2024-10-14
+"""
+
+
+def majorityElement(nums: List[int]) -> int:
+    """Take in a list of ints and find the one with the highest frequency."""
+    int_freq: dict[int, int] = Counter(nums)
+    return list({k: v for k, v in sorted(int_freq.items(), key=lambda item: item[1], reverse=True)}.keys())[0]
+
+
+if __name__ == '__main__':
+    test_list = [1, 1, 1, 2, 2, 2, 3, 3, 1, 2, 2, 2, 2, 2, 2, 2]
+    print(majorityElement(test_list))
